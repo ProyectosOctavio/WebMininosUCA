@@ -1,0 +1,182 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Seguridad.Master.cs" Inherits="ProyectoWebMininosUCA.Seguridad" %>
+
+<!DOCTYPE html>
+
+<html lang="es">
+<head runat="server">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - Mininos UCA</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
+    <link href="~/mininosFavicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;60*0&display=swap" rel="stylesheet">
+
+   <link rel="stylesheet" type="text/css" href="~/Content/MininosStyleSheet.css" />
+ <script src="Scripts/MininosScript.js" defer></script>
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+        <header class="navbar-fixed-top">
+              <img class="logo" src="images/mininos_logo_white.png" alt="logo" />
+            <div class="nav-toggle" onclick="toggleNavMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav class="nav">
+                <ul class="nav-links">
+                    <li><a runat="server" href="~/wfInicioAdmin">Regresar</a></li>
+                    <% if (IsUserAdmin()) { %>
+                        <li><a runat="server" href="~/wfGestionarUsuario">Usuarios</a></li>
+                        <li><a runat="server" href="~/wfGestionarRol">Roles</a></li> 
+                        <li><a runat="server" href="~/wfGestionarContacto">Contacto</a></li>
+                        <li><a runat="server" href="~/wfGestInfoBancaria">Info bancaria</a></li>
+                    <% } %>
+                </ul>
+            </nav>
+            <div class="mininos-logonuser">
+                <img src=<%: getUserAvatar() %> onClick="toggleUserMenu()" />
+            </div>
+            <div class="user-sub-menu-wrap" id="userSubMenu">
+                <div class="user-sub-menu">
+                    <div class="user-info">
+                        <img src=<%: getUserAvatar() %> />
+                        <h3><%: getUserNombre() %></h3>
+                    </div>
+                    <hr />
+                    <asp:Button ID="btnEditUser" runat="server" Text="Editar Perfil" OnClick="btnEditUser_Click"></asp:Button>
+                    <asp:Button ID="btnLogoff" runat="server" Text="Cerrar Sesion" OnClick="btnLogoff_Click"></asp:Button>
+                </div>
+            </div>
+            <div class="nav-sidebar-menu-wrap" id="navSidebarMenu">
+                <div class="nav-sidebar-menu">
+                    <div class="user-info">
+                        <img src=<%: getUserAvatar() %> />
+                        <h3><%: getUserNombre() %></h3>
+                    </div>
+                    <hr />
+                    <asp:Button ID="btnEditUserMobile" runat="server" Text="Editar Perfil" OnClick="btnEditUser_Click"></asp:Button>
+                    <asp:Button ID="btnLogoffMobile" runat="server" Text="Cerrar Sesion" OnClick="btnLogoff_Click"></asp:Button>
+                    <hr />
+                    <ul class="nav-links">
+                        <li><a runat="server" href="~/wfGestIncidentes">Incidentes</a></li>
+                        <li><a runat="server" href="~/wfNotificarIncidente">Reportar</a></li>
+                        <li><a runat="server" href="~/wfGestionarDonacion">Donaciones</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <div>
+            <br />
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <br />
+        <br />
+        <br />
+        <div>
+            <footer class="footer">
+                <div class="footer-container">
+                    <div class="footer-row">
+                        <div class="footer-col">
+                            <h4>Contactanos!</h4>
+                            <ul>
+                                <% var contacto = CargarContacto();
+
+                                    if (contacto.telefono != null)
+                                    {
+                                        %> <li><i class="fas fa-phone"></i><span> <%=contacto.telefono%></span></li> <%;
+                                    }
+                                    if (contacto.correo != null)
+                                    {
+                                        %> <li><i class="fas fa-envelope"></i><span> <%=contacto.correo%></span></li> <%;
+                                    }
+                                    if (contacto.correo2 != null)
+                                    {
+                                        %> <li><i class="fas fa-envelope"></i><span> <%=contacto.correo2%></span></li> <%;
+                                    }
+                                %>
+                            </ul>
+                            <div class="social-links">
+                                <%
+                                    if (contacto.insta != null)
+                                    {
+                                        %> <a href="<%=contacto.insta%>"><i class="fab fa-instagram"></i></a> <% 
+                                    };
+                                    if (contacto.twitter != null)
+                                    {
+                                        %> <a href="<%=contacto.twitter%>"><i class="fab fa-twitter"></i></a> <% 
+                                    };
+                                    if (contacto.facebook != null)
+                                    {
+                                        %> <a href="<%=contacto.facebook%>"><i class="fab fa-facebook"></i></a> <% 
+                                    };
+                                %>
+                            </div>
+                        </div>
+                        <div class="footer-col">
+                            <h4>Links</h4>
+                            <ul>
+                                <li><a runat="server" href="~/wfInicioAdmin">Inicio</a></li>
+                                <li><a runat="server" href="#">Equipo</a></li>
+                                <li><a runat="server" href="~/wfGaleria">Galeria</a></li>
+                                <li><a runat="server" href="~/wfGestPublicaciones">Blog</a></li>
+                                <li><a runat="server" href="~/wfGestionarDonacion.aspx">Donar</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-col">
+                            <h4>Terminos y Politicas</h4>
+                            <ul>
+                                <li><a runat="server" href="~/wfTerminosServicio.aspx">Terminos de servicio</a></li>
+                                <li><a runat="server" href="~/wfPoliticaPrivacidad.aspx">Politica de Privacidad</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    Desarrollado con ♥ por el equipo de InnovaSoftware
+                </div>
+            </footer>
+        </div>
+    </form>
+    <script>
+        let subMenu = document.getElementById("userSubMenu");
+        let navMenu = document.getElementById("navSidebarMenu");
+        
+        function toggleUserMenu() {
+            subMenu.classList.toggle("open-menu");
+        }
+
+        function toggleNavMenu() {
+            navMenu.classList.toggle("open-menu");
+        }
+    </script>
+</body>
+</html>

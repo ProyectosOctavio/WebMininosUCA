@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="05127027e47d462e932928b2a7564400" Name="Diagram1">
+        <EntityTypeShape EntityType="mininosUCAModel.AES" Width="1.5" PointX="8.25" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="mininosUCAModel.Album" Width="1.5" PointX="5.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="mininosUCAModel.DonacionEspecies" Width="1.5" PointX="5.25" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="mininosUCAModel.DonacionMonetaria" Width="1.5" PointX="5.25" PointY="24.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="mininosUCAModel.Donante" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="mininosUCAModel.Incidente" Width="1.5" PointX="8.25" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="mininosUCAModel.InfoBancaria" Width="1.5" PointX="7.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="mininosUCAModel.NivelDeRiesgo" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="mininosUCAModel.Opcion" Width="1.5" PointX="6.75" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="mininosUCAModel.Patologia" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="mininosUCAModel.Publicacion" Width="1.5" PointX="9.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="mininosUCAModel.Residente" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="mininosUCAModel.ResidenteDonante" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="mininosUCAModel.ResidentePatologia" Width="1.5" PointX="5.25" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="mininosUCAModel.Rol" Width="1.5" PointX="3.75" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="mininosUCAModel.RolOpcion" Width="1.5" PointX="9" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="mininosUCAModel.sysdiagrams" Width="1.5" PointX="10.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="mininosUCAModel.Usuario" Width="1.5" PointX="6" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="mininosUCAModel.Zona" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <AssociationConnector Association="mininosUCAModel.FK_Usuario_utiliza" ManuallyRouted="false" />
+        <AssociationConnector Association="mininosUCAModel.FK_Album_tiene" ManuallyRouted="false" />
+        <AssociationConnector Association="mininosUCAModel.FK_Donacion_especies_dona" ManuallyRouted="false" />
+        <AssociationConnector Association="mininosUCAModel.FK_Donacion_monetaria_dona" ManuallyRouted="false" />
+        <AssociationConnector Association="mininosUCAModel.FK_apadrinado_Donante" ManuallyRouted="false" />
+        <AssociationConnector Association="mininosUCAModel.FK_Incidente_implica" ManuallyRouted="false" />
+        <AssociationConnector Association="mininosUCAModel.FK_Incidente_ocurren" ManuallyRouted="false" />
+        <AssociationConnector Association="mininosUCAModel.FK_Usuario_reporta" ManuallyRouted="false" />
+        <AssociationConnector Association="mininosUCAModel.FK_tiene_Opcion" ManuallyRouted="false" />
+        <AssociationConnector Association="mininosUCAModel.FK_padece_Patologia" ManuallyRouted="false" />
+        <AssociationConnector Association="mininosUCAModel.FK_apadrinado_Residente" ManuallyRouted="false" />
+        <AssociationConnector Association="mininosUCAModel.FK_padece_Residente" ManuallyRouted="false" />
+        <AssociationConnector Association="mininosUCAModel.FK_Residente_se_ubica" ManuallyRouted="false" />
+        <AssociationConnector Association="mininosUCAModel.FK_tiene_Rol" ManuallyRouted="false" />
+        <AssociationConnector Association="mininosUCAModel.FK_Usuario_tiene" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="mininosUCAModel.Contacto" Width="1.5" PointX="10.75" PointY="7.875" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

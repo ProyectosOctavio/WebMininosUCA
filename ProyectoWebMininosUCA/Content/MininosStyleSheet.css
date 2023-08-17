@@ -1,0 +1,1408 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Public Sans', sans-serif;
+}
+
+.chip-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 24vw;
+    border-radius: 8px;
+    list-style: none;
+    border: 2px solid #01ADC3;
+    padding: 16px 20px;
+}
+
+    .chip-container li {
+        display: flex;
+        height: 32px;
+        border: 2px solid #01ADC3;
+        margin: 8px;
+        padding: 4px 8px;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+        .chip-container li input[type=checkbox] {
+            display: none;
+            margin: 0px;
+            cursor: pointer;
+        }
+
+        .chip-container li label {
+            margin: 0px 8px;
+            color: gray;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .chip-container li input[type=checkbox]:checked {
+            display: block;
+        }
+
+.switch-container {
+    display: flex;
+    justify-content: space-between;
+    width: 20vw;
+}
+
+.caroussel-data {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: black;
+}
+
+main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+legend {
+    color: #01ADC3; /* Código de color para celeste */
+}
+
+.input-group {
+    position: relative;
+}
+
+.space {
+    height: 200px;
+    background-color: #EDEFF6;
+}
+
+.scrollable-checkboxlist {
+    max-height: 150px; /* Altura máxima de la lista */
+    overflow-y: auto; /* Habilita el desplazamiento vertical */
+}
+
+.scroll-container {
+    overflow-y: auto;
+    max-height: 1500px; 
+}
+
+.scrollable-gridview {
+    max-height: 250px; /* Altura máxima de la lista */
+    overflow-y: auto; /* Habilita el desplazamiento vertical */
+}
+
+.mininos-imagenes {
+    border: 2px solid #01ADC3;
+    object-fit: cover;
+    padding: 25px;
+    width: 250px;
+    height: 250px;
+}
+
+    .input-group .input-area {
+        outline: none;
+        border: 2px solid #dadce0;
+        padding: 16px 13px;
+        font-size: 18px;
+        border-radius: 5px;
+    }
+
+        .input-group .input-area:valid + .label {
+            top: -8px;
+            padding: 0 3px;
+            font-size: 14px;
+            color: #8d8d8d;
+        }
+
+        .input-group .input-area:focus {
+            border: 2px solid #01ADC3;
+        }
+
+    .input-group .label {
+        color: #8d8d8d;
+        position: absolute;
+        top: 20px;
+        left: 13px;
+        background: #ffffff;
+    }
+
+    .input-group .input-area:focus + .label {
+        top: -8px;
+        padding: 0 3px;
+        font-size: 14px;
+        color: #01ADC3;
+    }
+
+.input-group .chip-container-label {
+    color: #8d8d8d;
+    position: absolute;
+    padding: 0px 3px;
+    top: -10px;
+    left: 14px;
+    background: #ffffff;
+}
+
+
+.mininos-hr {
+    margin: 40px 0;
+    border: 0;
+    border-top: 1px solid #edf0f1;
+}
+
+.mininos-button-primary {
+    all: unset;
+    width: 70%;
+    padding: 16px 20px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    background-color: #01ADC3;
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-bordered {
+    border: 1px solid #ddd;
+}
+
+.table-condensed {
+    font-size: 14px;
+}
+
+.table th,
+.table td {
+    padding: 8px;
+    text-align: left;
+    transition: 0.1s ease;
+}
+
+.table thead th {
+    background-color: #01ADC3;
+    color: white;
+    font-weight: bold;
+    font-size: larger;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f5f5f5;
+}
+
+.btn-eliminar {
+    background-color: #FF0000;
+    color: white;
+}
+
+.btn-resolver {
+    background-color: #B2D8B2; /* Verde claro */
+    color: #FFFFFF; /* Texto en blanco */
+    /* Agrega cualquier otro estilo deseado */
+}
+
+.mininos-button-secondary{
+    width: 70%;
+    padding: 16px 20px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    background-color: #01ADC3;
+    border: 1px solid #EDEFF6;
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+
+.mininos-button-secondary-small{
+    width: 10%;
+    padding: 16px 20px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    background-color: #01ADC3;
+    border: 1px solid #EDEFF6;
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+
+.mininos-input {
+    width: 100%;
+    padding: 16px 20px;
+    border: 2px solid #01ADC3;
+    color: #01ADC3;
+    font-size: 16px;
+    text-align: center;
+    word-wrap: break-word;
+    word-break: break-all;
+    white-space: pre-wrap;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+    .mininos-input:focus {
+        box-shadow: 0 3px 6px rgba(0,68,76,0.23);
+    }
+    .mininos-input::-webkit-file-upload-button {
+        all: unset;
+        padding: 8px 16px;
+        margin-right: 8px;
+        color: white;
+        font-size: 14px;
+        font-weight: 600;
+        text-align: center;
+        background-color: #01ADC3;
+        border-radius: 8px;
+    }
+
+
+input[disabled] {
+    width: 100%;
+    padding: 16px 20px;
+    border: 2px solid #01ADC3;
+    color: #01ADC3;
+    font-size: 16px;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+
+.mininos-imagen {
+    width: 50vw;
+}
+
+.logo {
+    height: 70px;
+    display: flex;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    background-color: #01ADC3;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 3rem;
+}
+
+    .nav-links li a {
+        padding: 9px 25px;
+        text-decoration: none;
+        font-weight: 400;
+        font-size: 16px;
+        color: #edf0f1;
+        transition: all 0.3s ease;
+    }
+
+        .nav-links li a button {
+            padding: 9px 25px;
+        }
+
+        .nav-links li a:hover {
+            color: #6D737A;
+        }
+
+.nav-toggle {
+    color: #EDEFF6;
+    background: none;
+    border: none;
+    font-size: 30px;
+    padding: 0 20px;
+    line-height: 60px;
+    display: none;
+}
+
+.mininos-logonuser {
+    display: flex;
+    justify-content: flex-end;
+}
+    .mininos-logonuser img {
+        vertical-align: middle;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+.user-sub-menu-wrap {
+    position: absolute;
+    right: 0%;
+    top: 100%;
+    width: 340px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+}
+.user-sub-menu-wrap.open-menu {
+    max-height: 400px;
+}
+.user-sub-menu {
+    background: #fff;
+    padding: 20px;
+    margin: 10px;
+}
+    .user-sub-menu input {
+        width: 100%;
+        padding: 8px 20px;
+        margin-bottom: 8px;
+        color: #01ADC3;
+        font-size: 16px;
+        font-weight: 600;
+        text-align: center;
+        background-color: white;
+        border: 2px #01ADC3;
+        border-radius: 8px;
+        transition: 0.3s ease;
+    }
+        .user-sub-menu input:hover {
+            transform: translateX(5px);
+        }
+.user-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+    .user-info h3 {
+        font-weight: 600;
+    }
+    .user-info img {
+        width: 60px;
+        border-radius: 50%;
+        margin-right: 15px;
+    }
+.user-sub-menu hr {
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    margin: 15px;
+}
+
+.nav-sidebar-menu-wrap {
+    position: absolute;
+    right: 0%;
+    top: 100%;
+    height: 100vh;
+    width: 0px;
+    overflow: hidden;
+    transition: width 0.5s;
+}
+
+    .nav-sidebar-menu-wrap.open-menu {
+        width: 50vw;
+    }
+
+.nav-sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #01ADC3;
+    padding: 20px;
+}
+    .nav-sidebar-menu .user-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: center;
+    }
+        .nav-sidebar-menu .user-info img {
+            width: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+        .nav-sidebar-menu .user-info h3 {
+            color: #edf0f1;
+            text-align: end;
+            font-weight: 600;
+        }
+        
+    .nav-sidebar-menu input {
+        width: 100%;
+        padding: 8px 20px;
+        margin-bottom: 8px;
+        color: #01ADC3;
+        font-size: 16px;
+        font-weight: 600;
+        text-align: center;
+        background-color: white;
+        border: 2px #01ADC3;
+        border-radius: 8px;
+        transition: 0.3s ease;
+    }
+
+    .nav-sidebar-menu .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 3rem;
+    }
+
+    .nav-sidebar-menu .nav-links li a {
+        padding: 9px 25px;
+        text-decoration: none;
+        font-weight: 400;
+        font-size: 16px;
+        color: #edf0f1;
+        transition: all 0.3s ease;
+    }
+
+.footer-container {
+    max-width: 1170px;
+    margin: auto;
+}
+
+.footer-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.footer {
+    height: 400px;
+    position: relative;
+}
+
+    .footer ul {
+        list-style: none;
+    }
+
+.footer-col {
+    width: calc(100%/3);
+    padding: 0 15px;
+}
+
+    .footer-col h4 {
+        font-size: 24px;
+        text-transform: capitalize;
+        margin-bottom: 30px;
+        font-weight: 600;
+        position: relative;
+    }
+
+    .footer-col ul li:not(last-child) {
+        margin-bottom: 10px;
+    }
+
+    .footer-col ul li a {
+        font-size: 16px;
+        text-transform: capitalize;
+        color: #6D737A;
+        text-decoration: none;
+        font-weight: 400;
+        display: block;
+        transition: all 0.3s ease;
+    }
+
+        .footer-col ul li a:hover {
+            padding-left: 5px;
+        }
+
+    .footer-col ul li span {
+        font-size: 16px;
+        color: #6D737A;
+        text-decoration: none;
+        font-weight: 400;
+    }
+
+    .footer-col .social-links a {
+        display: inline-block;
+        height: 40px;
+        width: 40px;
+        background-color: rgba(0,0,0,0.1);
+        margin: 0 10px 10px 0;
+        text-align: center;
+        line-height: 40px;
+        border-radius: 50%;
+        color: #01ADC3;
+        transition: all 0.5s ease;
+    }
+
+        .footer-col .social-links a:hover {
+            color: black;
+            background-color: #01ADC3;
+        }
+
+.footer-bottom {
+    height: 50px;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    padding-top: 20px;
+}
+
+.btn-mininos {
+    padding: 9px 25px;
+    color: #edf0f1;
+    background-color: #01ADC3;
+    border: 1px solid #EDEFF6;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+    .btn-mininos button:hover {
+        color: #01ADC3;
+        background-color: #edf0f1;
+        text-decoration: none;
+    }
+
+
+
+.banner {
+    position: relative;
+    background: url(../images/mininos_banner.png);
+    min-height: 70vh;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    z-index: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 150px 0 150px;
+}
+    .banner h1 {
+        font-size: 52px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        font-weight: 600;
+        color: white;
+        position: relative;
+        text-align: center;
+    }
+
+.banner-medium {
+    position: relative;
+    background: url(../images/mininos_banner.png);
+    min-height: 55vh;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    z-index: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .banner-medium h1 {
+        font-size: 52px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        font-weight: 600;
+        color: white;
+        position: relative;
+        text-align: center;
+    }
+
+.banner-small {
+    position: relative;
+    background: url(../images/mininos_banner.png);
+    min-height: 40vh;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    z-index: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.banner-small h1 {
+    font-size: 36px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-weight: 600;
+    color: white;
+    position: relative;
+    text-align: center;
+}
+
+.banner-small p {
+    font-size: 16px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-weight: 400;
+    color: white;
+    position: relative;
+    text-align: center;
+}
+
+.banner-small .center {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    position: relative;
+    text-align: center;
+}
+
+.banner-logo {
+    width: 400px;
+    height: 400px;
+}
+
+.content-container {
+    margin-right: 200px;
+    margin-left: 200px;
+    padding-bottom: 60px;
+    padding-top: 60px;
+}
+
+.container-secondary .content-container {
+    padding-bottom: 0px;
+}
+
+.banner-small .content-container {
+    margin-right: 600px;
+    margin-left: 600px;
+}
+
+.container-secondary {
+    background-color: #EDEFF6;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col-half {
+    width: 50%;
+    padding: 0 15px;
+}
+
+    .col-half .login-logo-center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+.col-full {
+    display: flex;
+    width: 100%;
+    padding: 0 15px;
+    align-items: center;
+    flex-direction: column;
+}
+
+.row h1 {
+    font-size: 36px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-weight: 600;
+    color: #01ADC3;
+    position: relative;
+    text-align: center;
+}
+
+.row p {
+    font-size: 16px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-weight: 400;
+    color: #889099;
+    position: relative;
+    text-align: center;
+}
+
+.row span {
+    font-size: 16px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-weight: 400;
+    color: #01ADC3;
+    position: relative;
+    text-align: center;
+    justify-content: center;
+}
+
+.row .center {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    position: relative;
+    text-align: center;
+}
+
+    .row .center img {
+        width: 80%;
+        height: auto;
+    }
+
+.caroussel-container {
+    display: flex;
+    padding: 0 35px;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+}
+
+.gallery-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+}
+
+.publications-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+}
+
+.wrapper {
+    max-width: 1100px;
+    width: 100%;
+    position: relative;
+}
+
+    .wrapper i {
+        top: 50%;
+        height: 45px;
+        width: 45px;
+        cursor: pointer;
+        position: absolute;
+        font-size: 1.2rem;
+        text-align: center;
+        line-height: 46px;
+        color: white;
+        background: #01ADC3;
+        border-radius: 10%;
+        transform: translateY(-50%);
+        box-shadow: 0 3px 6px rgba(0,0,0,0.23);
+    }
+
+        .wrapper i:first-child {
+            left: -23px;
+        }
+
+        .wrapper i:last-child {
+            right: -23px;
+        }
+
+    .wrapper .caroussel {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: calc((100%/3) - 12px);
+        gap: 16px;
+        overflow: hidden;
+        white-space: nowrap;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        scrollbar-width: 0;
+    }
+
+.caroussel::-webkit-scrollbar {
+    display: none;
+}
+
+.caroussel.no-trasnsition {
+    scroll-behavior: auto;
+}
+
+.caroussel.dragging {
+    scroll-snap-type: none;
+    scroll-behavior: auto;
+}
+
+    .caroussel.dragging .card {
+        cursor: grab;
+        user-select: none;
+    }
+
+.caroussel .card {
+    scroll-snap-align: start;
+    height: 425px;
+    list-style: none;
+    background: white;
+    border-radius: 5%;
+    display: flex;
+    padding-bottom: 15px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.caroussel .caroussel-image img {
+    height: 312px;
+    width: 312px;
+    object-fit: cover;
+    margin-left: 14px;
+}
+
+.caroussel img:first-child {
+    margin-left: 0px;
+}
+
+.card h2 {
+    font-weight: 600;
+    font-size: 24px;
+    margin: 30px 0 5px;
+}
+
+.card span {
+    font-weight: 400;
+    font-size: 16px;
+    color: #6D737A;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 75px;
+    list-style: none;
+}
+
+.gallery > li {
+    flex-basis: 300px;
+    cursor: pointer ;
+}
+
+    .gallery li img {
+        object-fit: cover;
+        width: 300px;
+        height: 300px;
+        vertical-align: middle;
+        border-radius: 5px;
+    }
+
+    .gallery .card {
+        background: white;
+        border-radius: 5px;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+        display: flex;
+        padding-bottom: 15px;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: column;
+        transition: all 0.2s 0.1s ease-in-out;
+    }
+
+        .gallery .card:hover {
+            box-shadow: 12px 12px #01ADC3;
+        }
+
+        .gallery .card h2 {
+            margin-left: 10px;
+            margin-right: 10px;
+            text-align: center;
+        }
+
+        .gallery .card h4 {
+            margin-left: 10px;
+            margin-right: 10px;
+            text-align: center;
+        }
+
+.publications {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 75px;
+    list-style: none;
+}
+
+    .publications > li {
+        flex-basis: 450px;
+        cursor: pointer;
+    }
+
+    .publications li img {
+        object-fit: cover;
+        width: 30vw;
+        height: 600px;
+        vertical-align: middle;
+        border-radius: 5px;
+    }
+
+    .publications .card {
+        background: white;
+        border-radius: 5px;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+        display: flex;
+        padding-bottom: 15px;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: column;
+        transition: all 0.2s 0.1s ease-in-out;
+    }
+
+        .publications .card:hover {
+            box-shadow: 12px 12px #01ADC3;
+        }
+
+        .publications .card h2 {
+            margin-left: 10px;
+            margin-right: 10px;
+            text-align: center;
+        }
+
+        .publications .card h4 {
+            margin-left: 10px;
+            margin-right: 10px;
+            text-align: center;
+        }
+
+.mininos-entry-list{
+    list-style: none;
+    text-decoration: none;
+}
+
+    .mininos-entry-list li {
+        display: flex;
+        background: white;
+        border-radius: 6px;
+        padding: 25px;
+        margin-bottom: 15px;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.23);
+        justify-content: flex-start;
+    }
+        .mininos-entry-list li .mininos-donation-img{
+            display: flex;
+            align-items: center;
+        }
+        .mininos-entry-list li .mininos-donation-img img {
+            align-items: center;
+            width: 80px;
+            height: auto;
+            margin-right: 25px;
+            justify-content: center;
+        }
+        .mininos-entry-list li .mininos-donacion-activa {
+            justify-content: space-between;
+        }
+
+.mininos-donacion-activa .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+    .mininos-donacion-activa .info h1 {
+        font-weight: 600;
+        font-size: 30px;
+        color: black;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        position: relative;
+        text-align: left;
+    }
+    .mininos-donacion-activa .info h3 {
+        font-weight: 400;
+        font-size: 18px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        position: relative;
+        text-align: left;
+    }
+    .mininos-donacion-activa .info h4 {
+        font-weight: 400;
+        font-size: 16px;
+        color: #6D737A;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        position: relative;
+        text-align: left;
+    }
+
+.mininos-donacion-activa .options {
+    display: flex;
+}
+
+.col-full .mininos-form-container {
+    width: 50%;
+}
+
+.mininos-form-container{
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 16px;
+    padding: 0 70px 30px 70px;
+    border: 4px solid #01ADC3;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.23);
+    justify-content: center;
+    align-items: center;
+}
+    .mininos-form-container p {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        color: #01ADC3;
+    }
+    .mininos-form-container .mininos-form {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        justify-content: center;
+        align-items: center;
+    }
+
+.form-row-1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+    .form-row-1 .mininos-input{
+        flex-grow: 1;
+    }
+.form-row-2 {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    justify-content: space-between;
+}
+.form-row-3 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+    .mininos-form-container .mininos-form .mininos-input {
+        all: unset;
+        width: 20vw;
+        padding: 16px 20px;
+        border: 2px solid #01ADC3;
+        color: #01ADC3;
+        font-size: 16px;
+        text-align: start;
+        background-color: rgba(255,255,255,0.1);
+        border-radius: 8px;
+        transition: 0.3s ease;
+    }
+
+.mininos-form-container .mininos-form .form-row-3 .mininos-input {
+    all: unset;
+    width: 6vw;
+    padding: 16px 20px;
+    border: 2px solid #01ADC3;
+    color: #01ADC3;
+    font-size: 16px;
+    text-align: start;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+
+.mininos-form-container .mininos-form .form-row-2 .mininos-input {
+    all: unset;
+    width: 10vw;
+    padding: 16px 20px;
+    border: 2px solid #01ADC3;
+    color: #01ADC3;
+    font-size: 16px;
+    text-align: start;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+
+    .mininos-form-container .mininos-login-form .mininos-input:focus {
+            box-shadow: 0 3px 6px rgba(0,68,76,0.23);
+        }
+
+    .mininos-form-container .mininos-login-form {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        justify-content: center;
+        align-items: center;
+        padding: 50px 0 0 0;
+        background-color: rgba(255,255,255,0.78);
+    }
+    .mininos-form-container .mininos-login-form .mininos-input {
+        all: unset;
+        width: 120%;
+        padding: 16px 20px;
+        border: 2px solid #01ADC3;
+        color: #01ADC3;
+        font-size: 16px;
+        text-align: start;
+        background-color: rgba(255,255,255,0.1);
+        border-radius: 8px;
+        transition: 0.3s ease;
+    }
+
+        .mininos-form-container .mininos-login-form span {
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+
+@media screen and (max-width: 1360px) {
+    .logo {
+        height: 50px;
+        display: flex;
+    }
+    .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 3rem;
+    }
+        .nav-links li a {
+            padding: 0px 25px;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 14px;
+            color: #edf0f1;
+            transition: all 0.3s ease;
+        }
+            .nav-links li a:hover {
+                color: #6D737A;
+            }
+}
+
+@media screen and (max-width: 1315px) {
+    .content-container {
+        margin-right: 100px;
+        margin-left: 100px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .wrapper .caroussel {
+        grid-auto-columns: calc((100%/2) - 9px);
+    }
+}
+
+@media(max-width: 1015px) {
+    .col-half {
+        width: 100%;
+        padding: 0 15px;
+    }
+}
+
+@media(max-width: 865px) {
+    .mininos-button-primary {
+        all: unset;
+        width: 70vw;
+        padding: 16px 20px;
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+        text-align: center;
+        background-color: #01ADC3;
+        border-radius: 8px;
+        transition: 0.3s ease;
+    }
+    
+    .mininos-button-secondary-small {
+        width: 20%;
+    } 
+    
+    .nav {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #1c1c1c;
+        padding: 2rem;
+        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5);
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav {
+        display: none;
+    }
+      
+    .mininos-logonuser {
+        display: none;
+    }
+
+    .publications {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 75px;
+        list-style: none;
+    }
+
+        .publications > li {
+            width: 70vw;
+            cursor: pointer;
+        }
+
+        .publications li img {
+            object-fit: cover;
+            width: 80vw;
+            height: 550px;
+            vertical-align: middle;
+            border-radius: 5px;
+        }
+
+        .publications .card {
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+            display: flex;
+            padding-bottom: 15px;
+            align-items: center;
+            justify-content: flex-start;
+            flex-direction: column;
+            transition: all 0.2s 0.1s ease-in-out;
+        }
+
+    .form-row-2 {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        justify-content: space-between;
+    }
+
+    .form-row-3 {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 25px;
+    }
+
+    .mininos-form-container {
+        border: none;
+        box-shadow: none;
+        padding: 0 20px 30px 20px;
+    }
+
+    .mininos-form-container p {
+        margin-top: 15px;
+        margin-bottom: 0px;
+        color: #01ADC3;
+    }
+
+    .mininos-form-container .mininos-form .mininos-input {
+        all: unset;
+        width: 70vw;
+        padding: 16px 20px;
+        border: 2px solid #01ADC3;
+        color: #01ADC3;
+        font-size: 16px;
+        text-align: start;
+        background-color: rgba(255,255,255,0.1);
+        border-radius: 8px;
+        transition: 0.3s ease;
+    }
+
+        .mininos-form-container .mininos-form .form-row-3 .mininos-input {
+            all: unset;
+            width: 70vw;
+            padding: 16px 20px;
+            border: 2px solid #01ADC3;
+            color: #01ADC3;
+            font-size: 16px;
+            text-align: start;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            transition: 0.3s ease;
+        }
+
+        .mininos-form-container .mininos-form .form-row-2 .mininos-input {
+            all: unset;
+            width: 70vw;
+            padding: 16px 20px;
+            border: 2px solid #01ADC3;
+            color: #01ADC3;
+            font-size: 16px;
+            text-align: start;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            transition: 0.3s ease;
+        }
+
+    .mininos-form-container .mininos-login-form .mininos-input:focus {
+        box-shadow: 0 3px 6px rgba(0,68,76,0.23);
+    }
+
+    .mininos-form-container .mininos-login-form {
+        display: flex;
+        align-self: center;
+        flex-direction: column;
+        gap: 25px;
+        justify-content: center;
+        align-items: center;
+        padding: 50px 0 0 0;
+        background-color: rgba(255,255,255,0.78);
+    }
+
+        .mininos-form-container .mininos-login-form .mininos-input {
+            all: unset;
+            width: 70vw;
+            padding: 16px 20px;
+            border: 2px solid #01ADC3;
+            color: #01ADC3;
+            font-size: 16px;
+            text-align: start;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            transition: 0.3s ease;
+        }
+
+        .mininos-form-container .mininos-login-form a {
+            text-align: center;
+        }
+
+    .mininos-imagen {
+        width: 50vw;
+    }
+
+    .banner {
+        padding: 0 25px 0 25px;
+    }
+
+    .login-logo-center img {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .banner-logo {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .content-container {
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+    
+    .wrapper .caroussel {
+        grid-auto-columns: 100%;
+    }
+
+    .footer-col {
+        width: 50%;
+        margin-bottom: 30px;
+    }
+
+    .footer-bottom {
+        height: 50px;
+        width: 100%;
+        text-align: center;
+        position: relative;
+        bottom: 0px;
+        left: 0px;
+        padding-top: 20px;
+    }
+}
+
+@media(max-width: 574px) {
+    .footer-col {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+}

@@ -1,0 +1,1269 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="mininosUCAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AES">
+          <Key>
+            <PropertyRef Name="idAes" />
+          </Key>
+          <Property Name="idAes" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idUsuario" Type="int" />
+          <Property Name="token" Type="nvarchar" MaxLength="50" />
+          <Property Name="iv" Type="nvarchar" MaxLength="50" />
+          <Property Name="estado" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Album">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="foto" Type="varbinary(max)" Nullable="false" />
+          <Property Name="residenteId" Type="int" Nullable="false" />
+          <Property Name="estado" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contacto">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="telefono" Type="nvarchar(max)" />
+          <Property Name="correo" Type="nvarchar(max)" />
+          <Property Name="correo2" Type="nvarchar(max)" />
+          <Property Name="twitter" Type="nvarchar(max)" />
+          <Property Name="insta" Type="nvarchar(max)" />
+          <Property Name="facebook" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="DonacionEspecies">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tipoEspecie" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="cantidad" Type="float" Nullable="false" />
+          <Property Name="unidadMedida" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="fecha" Type="date" Nullable="false" />
+          <Property Name="donanteId" Type="int" Nullable="false" />
+          <Property Name="estado" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DonacionMonetaria">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="montoNi" Type="float" Nullable="false" />
+          <Property Name="voucher" Type="varbinary(max)" Nullable="false" />
+          <Property Name="fecha" Type="date" Nullable="false" />
+          <Property Name="donanteId" Type="int" Nullable="false" />
+          <Property Name="estado" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Donante">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fechaIngreso" Type="date" Nullable="false" />
+          <Property Name="alias" Type="nvarchar(max)" />
+          <Property Name="nombre" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="apellido" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="correo" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="numTelefono" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="pais" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ciudad" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="estado" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Incidente">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nivelRiesgoId" Type="int" />
+          <Property Name="descripcion" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="foto" Type="varbinary(max)" />
+          <Property Name="residenteId" Type="int" />
+          <Property Name="usuarioId" Type="int" Nullable="false" />
+          <Property Name="fechaHora" Type="datetime" Nullable="false" />
+          <Property Name="estado" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InfoBancaria">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="banco" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="numeroCuenta" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="moneda" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="estado" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NivelDeRiesgo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="descripcion" Type="nvarchar(max)" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Opcion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="accion" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="url" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="estado" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Patologia">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar(max)" />
+          <Property Name="estado" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Publicacion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fotoPublicacion" Type="varbinary(max)" />
+          <Property Name="titulo" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="tipo" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="contenido" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="fecha" Type="date" Nullable="false" />
+          <Property Name="estado" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Residente">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fotoId" Type="varbinary(max)" />
+          <Property Name="nombre" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="sexo" Type="bit" />
+          <Property Name="esterilizado" Type="bit" Nullable="false" />
+          <Property Name="fechaIngreso" Type="date" Nullable="false" />
+          <Property Name="fechaNacimiento" Type="date" />
+          <Property Name="fechaDesaparicion" Type="date" />
+          <Property Name="fechaDefuncion" Type="date" />
+          <Property Name="zonaId" Type="int" />
+          <Property Name="estado" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ResidenteDonante">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="donanteId" Type="int" />
+          <Property Name="residenteId" Type="int" />
+          <Property Name="estado" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ResidentePatologia">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="patologiaId" Type="int" />
+          <Property Name="residenteId" Type="int" />
+          <Property Name="estado" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="estado" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RolOpcion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="opcionId" Type="int" />
+          <Property Name="rolId" Type="int" />
+          <Property Name="estado" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fotoId" Type="varbinary(max)" />
+          <Property Name="nombre" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="apellido" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="username" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="pw" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="telefonoCel" Type="nvarchar(max)" />
+          <Property Name="fechaCreacion" Type="date" Nullable="false" />
+          <Property Name="rolId" Type="int" />
+          <Property Name="estado" Type="int" Nullable="false" />
+          <Property Name="TokenRestablecimiento" Type="nvarchar" MaxLength="100" />
+          <Property Name="FechaCreacionToken" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Zona">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="estado" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Album_tiene">
+          <End Role="Residente" Type="Self.Residente" Multiplicity="1" />
+          <End Role="Album" Type="Self.Album" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Residente">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Album">
+              <PropertyRef Name="residenteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_apadrinado_Donante">
+          <End Role="Donante" Type="Self.Donante" Multiplicity="0..1" />
+          <End Role="ResidenteDonante" Type="Self.ResidenteDonante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Donante">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ResidenteDonante">
+              <PropertyRef Name="donanteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_apadrinado_Residente">
+          <End Role="Residente" Type="Self.Residente" Multiplicity="0..1" />
+          <End Role="ResidenteDonante" Type="Self.ResidenteDonante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Residente">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ResidenteDonante">
+              <PropertyRef Name="residenteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Donacion especies_dona">
+          <End Role="Donante" Type="Self.Donante" Multiplicity="1" />
+          <End Role="DonacionEspecies" Type="Self.DonacionEspecies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Donante">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DonacionEspecies">
+              <PropertyRef Name="donanteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Donacion monetaria_dona">
+          <End Role="Donante" Type="Self.Donante" Multiplicity="1" />
+          <End Role="DonacionMonetaria" Type="Self.DonacionMonetaria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Donante">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DonacionMonetaria">
+              <PropertyRef Name="donanteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Incidente_implica">
+          <End Role="NivelDeRiesgo" Type="Self.NivelDeRiesgo" Multiplicity="0..1" />
+          <End Role="Incidente" Type="Self.Incidente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NivelDeRiesgo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Incidente">
+              <PropertyRef Name="nivelRiesgoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Incidente_ocurren">
+          <End Role="Residente" Type="Self.Residente" Multiplicity="0..1" />
+          <End Role="Incidente" Type="Self.Incidente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Residente">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Incidente">
+              <PropertyRef Name="residenteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_padece_Patologia">
+          <End Role="Patologia" Type="Self.Patologia" Multiplicity="0..1" />
+          <End Role="ResidentePatologia" Type="Self.ResidentePatologia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patologia">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ResidentePatologia">
+              <PropertyRef Name="patologiaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_padece_Residente">
+          <End Role="Residente" Type="Self.Residente" Multiplicity="0..1" />
+          <End Role="ResidentePatologia" Type="Self.ResidentePatologia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Residente">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ResidentePatologia">
+              <PropertyRef Name="residenteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Residente_se ubica">
+          <End Role="Zona" Type="Self.Zona" Multiplicity="0..1" />
+          <End Role="Residente" Type="Self.Residente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zona">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Residente">
+              <PropertyRef Name="zonaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tiene_Opcion">
+          <End Role="Opcion" Type="Self.Opcion" Multiplicity="0..1" />
+          <End Role="RolOpcion" Type="Self.RolOpcion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Opcion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="RolOpcion">
+              <PropertyRef Name="opcionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tiene_Rol">
+          <End Role="Rol" Type="Self.Rol" Multiplicity="0..1" />
+          <End Role="RolOpcion" Type="Self.RolOpcion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="RolOpcion">
+              <PropertyRef Name="rolId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_reporta">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Incidente" Type="Self.Incidente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Incidente">
+              <PropertyRef Name="usuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_tiene">
+          <End Role="Rol" Type="Self.Rol" Multiplicity="0..1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="rolId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_utiliza">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="AES" Type="Self.AES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="AES">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="mininosUCAModelStoreContainer">
+          <EntitySet Name="AES" EntityType="Self.AES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Album" EntityType="Self.Album" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contacto" EntityType="Self.Contacto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DonacionEspecies" EntityType="Self.DonacionEspecies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DonacionMonetaria" EntityType="Self.DonacionMonetaria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Donante" EntityType="Self.Donante" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Incidente" EntityType="Self.Incidente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InfoBancaria" EntityType="Self.InfoBancaria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NivelDeRiesgo" EntityType="Self.NivelDeRiesgo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Opcion" EntityType="Self.Opcion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patologia" EntityType="Self.Patologia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Publicacion" EntityType="Self.Publicacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Residente" EntityType="Self.Residente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ResidenteDonante" EntityType="Self.ResidenteDonante" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ResidentePatologia" EntityType="Self.ResidentePatologia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RolOpcion" EntityType="Self.RolOpcion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Zona" EntityType="Self.Zona" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Album_tiene" Association="Self.FK_Album_tiene">
+            <End Role="Residente" EntitySet="Residente" />
+            <End Role="Album" EntitySet="Album" />
+          </AssociationSet>
+          <AssociationSet Name="FK_apadrinado_Donante" Association="Self.FK_apadrinado_Donante">
+            <End Role="Donante" EntitySet="Donante" />
+            <End Role="ResidenteDonante" EntitySet="ResidenteDonante" />
+          </AssociationSet>
+          <AssociationSet Name="FK_apadrinado_Residente" Association="Self.FK_apadrinado_Residente">
+            <End Role="Residente" EntitySet="Residente" />
+            <End Role="ResidenteDonante" EntitySet="ResidenteDonante" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Donacion especies_dona" Association="Self.FK_Donacion especies_dona">
+            <End Role="Donante" EntitySet="Donante" />
+            <End Role="DonacionEspecies" EntitySet="DonacionEspecies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Donacion monetaria_dona" Association="Self.FK_Donacion monetaria_dona">
+            <End Role="Donante" EntitySet="Donante" />
+            <End Role="DonacionMonetaria" EntitySet="DonacionMonetaria" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Incidente_implica" Association="Self.FK_Incidente_implica">
+            <End Role="NivelDeRiesgo" EntitySet="NivelDeRiesgo" />
+            <End Role="Incidente" EntitySet="Incidente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Incidente_ocurren" Association="Self.FK_Incidente_ocurren">
+            <End Role="Residente" EntitySet="Residente" />
+            <End Role="Incidente" EntitySet="Incidente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_padece_Patologia" Association="Self.FK_padece_Patologia">
+            <End Role="Patologia" EntitySet="Patologia" />
+            <End Role="ResidentePatologia" EntitySet="ResidentePatologia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_padece_Residente" Association="Self.FK_padece_Residente">
+            <End Role="Residente" EntitySet="Residente" />
+            <End Role="ResidentePatologia" EntitySet="ResidentePatologia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Residente_se ubica" Association="Self.FK_Residente_se ubica">
+            <End Role="Zona" EntitySet="Zona" />
+            <End Role="Residente" EntitySet="Residente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tiene_Opcion" Association="Self.FK_tiene_Opcion">
+            <End Role="Opcion" EntitySet="Opcion" />
+            <End Role="RolOpcion" EntitySet="RolOpcion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tiene_Rol" Association="Self.FK_tiene_Rol">
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="RolOpcion" EntitySet="RolOpcion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_reporta" Association="Self.FK_Usuario_reporta">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Incidente" EntitySet="Incidente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_tiene" Association="Self.FK_Usuario_tiene">
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_utiliza" Association="Self.FK_Usuario_utiliza">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="AES" EntitySet="AES" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="mininosUCAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AES">
+          <Key>
+            <PropertyRef Name="idAes" />
+          </Key>
+          <Property Name="idAes" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idUsuario" Type="Int32" />
+          <Property Name="token" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="iv" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="estado" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK_Usuario_utiliza" FromRole="AES" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Album">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="foto" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="residenteId" Type="Int32" Nullable="false" />
+          <Property Name="estado" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Residente" Relationship="Self.FK_Album_tiene" FromRole="Album" ToRole="Residente" />
+        </EntityType>
+        <EntityType Name="DonacionEspecies">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tipoEspecie" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="cantidad" Type="Double" Nullable="false" />
+          <Property Name="unidadMedida" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="donanteId" Type="Int32" Nullable="false" />
+          <Property Name="estado" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Donante" Relationship="Self.FK_Donacion_especies_dona" FromRole="DonacionEspecies" ToRole="Donante" />
+        </EntityType>
+        <EntityType Name="DonacionMonetaria">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="montoNi" Type="Double" Nullable="false" />
+          <Property Name="voucher" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="donanteId" Type="Int32" Nullable="false" />
+          <Property Name="estado" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Donante" Relationship="Self.FK_Donacion_monetaria_dona" FromRole="DonacionMonetaria" ToRole="Donante" />
+        </EntityType>
+        <EntityType Name="Donante">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fechaIngreso" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="alias" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="apellido" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="correo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="numTelefono" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="pais" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ciudad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="estado" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DonacionEspecies" Relationship="Self.FK_Donacion_especies_dona" FromRole="Donante" ToRole="DonacionEspecies" />
+          <NavigationProperty Name="DonacionMonetaria" Relationship="Self.FK_Donacion_monetaria_dona" FromRole="Donante" ToRole="DonacionMonetaria" />
+          <NavigationProperty Name="ResidenteDonante" Relationship="Self.FK_apadrinado_Donante" FromRole="Donante" ToRole="ResidenteDonante" />
+        </EntityType>
+        <EntityType Name="Incidente">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nivelRiesgoId" Type="Int32" />
+          <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="foto" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="residenteId" Type="Int32" />
+          <Property Name="usuarioId" Type="Int32" Nullable="false" />
+          <Property Name="fechaHora" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="estado" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="NivelDeRiesgo" Relationship="Self.FK_Incidente_implica" FromRole="Incidente" ToRole="NivelDeRiesgo" />
+          <NavigationProperty Name="Residente" Relationship="Self.FK_Incidente_ocurren" FromRole="Incidente" ToRole="Residente" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK_Usuario_reporta" FromRole="Incidente" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="InfoBancaria">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="banco" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="numeroCuenta" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="moneda" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="estado" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NivelDeRiesgo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Incidente" Relationship="Self.FK_Incidente_implica" FromRole="NivelDeRiesgo" ToRole="Incidente" />
+        </EntityType>
+        <EntityType Name="Opcion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="accion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="url" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="estado" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="RolOpcion" Relationship="Self.FK_tiene_Opcion" FromRole="Opcion" ToRole="RolOpcion" />
+        </EntityType>
+        <EntityType Name="Patologia">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="estado" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ResidentePatologia" Relationship="Self.FK_padece_Patologia" FromRole="Patologia" ToRole="ResidentePatologia" />
+        </EntityType>
+        <EntityType Name="Publicacion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fotoPublicacion" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="titulo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tipo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="contenido" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="estado" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Residente">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fotoId" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="sexo" Type="Boolean" />
+          <Property Name="esterilizado" Type="Boolean" Nullable="false" />
+          <Property Name="fechaIngreso" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="fechaNacimiento" Type="DateTime" Precision="0" />
+          <Property Name="fechaDesaparicion" Type="DateTime" Precision="0" />
+          <Property Name="fechaDefuncion" Type="DateTime" Precision="0" />
+          <Property Name="zonaId" Type="Int32" />
+          <Property Name="estado" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Album" Relationship="Self.FK_Album_tiene" FromRole="Residente" ToRole="Album" />
+          <NavigationProperty Name="Incidente" Relationship="Self.FK_Incidente_ocurren" FromRole="Residente" ToRole="Incidente" />
+          <NavigationProperty Name="ResidenteDonante" Relationship="Self.FK_apadrinado_Residente" FromRole="Residente" ToRole="ResidenteDonante" />
+          <NavigationProperty Name="ResidentePatologia" Relationship="Self.FK_padece_Residente" FromRole="Residente" ToRole="ResidentePatologia" />
+          <NavigationProperty Name="Zona" Relationship="Self.FK_Residente_se_ubica" FromRole="Residente" ToRole="Zona" />
+        </EntityType>
+        <EntityType Name="ResidenteDonante">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="donanteId" Type="Int32" />
+          <Property Name="residenteId" Type="Int32" />
+          <Property Name="estado" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Donante" Relationship="Self.FK_apadrinado_Donante" FromRole="ResidenteDonante" ToRole="Donante" />
+          <NavigationProperty Name="Residente" Relationship="Self.FK_apadrinado_Residente" FromRole="ResidenteDonante" ToRole="Residente" />
+        </EntityType>
+        <EntityType Name="ResidentePatologia">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="patologiaId" Type="Int32" />
+          <Property Name="residenteId" Type="Int32" />
+          <Property Name="estado" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Patologia" Relationship="Self.FK_padece_Patologia" FromRole="ResidentePatologia" ToRole="Patologia" />
+          <NavigationProperty Name="Residente" Relationship="Self.FK_padece_Residente" FromRole="ResidentePatologia" ToRole="Residente" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="estado" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="RolOpcion" Relationship="Self.FK_tiene_Rol" FromRole="Rol" ToRole="RolOpcion" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK_Usuario_tiene" FromRole="Rol" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="RolOpcion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="opcionId" Type="Int32" />
+          <Property Name="rolId" Type="Int32" />
+          <Property Name="estado" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Opcion" Relationship="Self.FK_tiene_Opcion" FromRole="RolOpcion" ToRole="Opcion" />
+          <NavigationProperty Name="Rol" Relationship="Self.FK_tiene_Rol" FromRole="RolOpcion" ToRole="Rol" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fotoId" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="apellido" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="pw" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="telefonoCel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fechaCreacion" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="rolId" Type="Int32" />
+          <Property Name="estado" Type="Int32" Nullable="false" />
+          <Property Name="TokenRestablecimiento" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FechaCreacionToken" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="AES" Relationship="Self.FK_Usuario_utiliza" FromRole="Usuario" ToRole="AES" />
+          <NavigationProperty Name="Incidente" Relationship="Self.FK_Usuario_reporta" FromRole="Usuario" ToRole="Incidente" />
+          <NavigationProperty Name="Rol" Relationship="Self.FK_Usuario_tiene" FromRole="Usuario" ToRole="Rol" />
+        </EntityType>
+        <EntityType Name="Zona">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="estado" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Residente" Relationship="Self.FK_Residente_se_ubica" FromRole="Zona" ToRole="Residente" />
+        </EntityType>
+        <Association Name="FK_Usuario_utiliza">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="AES" Type="Self.AES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="AES">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Album_tiene">
+          <End Role="Residente" Type="Self.Residente" Multiplicity="1" />
+          <End Role="Album" Type="Self.Album" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Residente">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Album">
+              <PropertyRef Name="residenteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Donacion_especies_dona">
+          <End Role="Donante" Type="Self.Donante" Multiplicity="1" />
+          <End Role="DonacionEspecies" Type="Self.DonacionEspecies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Donante">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DonacionEspecies">
+              <PropertyRef Name="donanteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Donacion_monetaria_dona">
+          <End Role="Donante" Type="Self.Donante" Multiplicity="1" />
+          <End Role="DonacionMonetaria" Type="Self.DonacionMonetaria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Donante">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DonacionMonetaria">
+              <PropertyRef Name="donanteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_apadrinado_Donante">
+          <End Role="Donante" Type="Self.Donante" Multiplicity="0..1" />
+          <End Role="ResidenteDonante" Type="Self.ResidenteDonante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Donante">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ResidenteDonante">
+              <PropertyRef Name="donanteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Incidente_implica">
+          <End Role="NivelDeRiesgo" Type="Self.NivelDeRiesgo" Multiplicity="0..1" />
+          <End Role="Incidente" Type="Self.Incidente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NivelDeRiesgo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Incidente">
+              <PropertyRef Name="nivelRiesgoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Incidente_ocurren">
+          <End Role="Residente" Type="Self.Residente" Multiplicity="0..1" />
+          <End Role="Incidente" Type="Self.Incidente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Residente">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Incidente">
+              <PropertyRef Name="residenteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_reporta">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Incidente" Type="Self.Incidente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Incidente">
+              <PropertyRef Name="usuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tiene_Opcion">
+          <End Role="Opcion" Type="Self.Opcion" Multiplicity="0..1" />
+          <End Role="RolOpcion" Type="Self.RolOpcion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Opcion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="RolOpcion">
+              <PropertyRef Name="opcionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_padece_Patologia">
+          <End Role="Patologia" Type="Self.Patologia" Multiplicity="0..1" />
+          <End Role="ResidentePatologia" Type="Self.ResidentePatologia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patologia">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ResidentePatologia">
+              <PropertyRef Name="patologiaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_apadrinado_Residente">
+          <End Role="Residente" Type="Self.Residente" Multiplicity="0..1" />
+          <End Role="ResidenteDonante" Type="Self.ResidenteDonante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Residente">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ResidenteDonante">
+              <PropertyRef Name="residenteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_padece_Residente">
+          <End Role="Residente" Type="Self.Residente" Multiplicity="0..1" />
+          <End Role="ResidentePatologia" Type="Self.ResidentePatologia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Residente">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ResidentePatologia">
+              <PropertyRef Name="residenteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Residente_se_ubica">
+          <End Role="Zona" Type="Self.Zona" Multiplicity="0..1" />
+          <End Role="Residente" Type="Self.Residente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zona">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Residente">
+              <PropertyRef Name="zonaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tiene_Rol">
+          <End Role="Rol" Type="Self.Rol" Multiplicity="0..1" />
+          <End Role="RolOpcion" Type="Self.RolOpcion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="RolOpcion">
+              <PropertyRef Name="rolId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_tiene">
+          <End Role="Rol" Type="Self.Rol" Multiplicity="0..1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="rolId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="mininosDatabaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AES" EntityType="Self.AES" />
+          <EntitySet Name="Album" EntityType="Self.Album" />
+          <EntitySet Name="DonacionEspecies" EntityType="Self.DonacionEspecies" />
+          <EntitySet Name="DonacionMonetaria" EntityType="Self.DonacionMonetaria" />
+          <EntitySet Name="Donante" EntityType="Self.Donante" />
+          <EntitySet Name="Incidente" EntityType="Self.Incidente" />
+          <EntitySet Name="InfoBancaria" EntityType="Self.InfoBancaria" />
+          <EntitySet Name="NivelDeRiesgo" EntityType="Self.NivelDeRiesgo" />
+          <EntitySet Name="Opcion" EntityType="Self.Opcion" />
+          <EntitySet Name="Patologia" EntityType="Self.Patologia" />
+          <EntitySet Name="Publicacion" EntityType="Self.Publicacion" />
+          <EntitySet Name="Residente" EntityType="Self.Residente" />
+          <EntitySet Name="ResidenteDonante" EntityType="Self.ResidenteDonante" />
+          <EntitySet Name="ResidentePatologia" EntityType="Self.ResidentePatologia" />
+          <EntitySet Name="Rol" EntityType="Self.Rol" />
+          <EntitySet Name="RolOpcion" EntityType="Self.RolOpcion" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+          <EntitySet Name="Zona" EntityType="Self.Zona" />
+          <AssociationSet Name="FK_Usuario_utiliza" Association="Self.FK_Usuario_utiliza">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="AES" EntitySet="AES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Album_tiene" Association="Self.FK_Album_tiene">
+            <End Role="Residente" EntitySet="Residente" />
+            <End Role="Album" EntitySet="Album" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Donacion_especies_dona" Association="Self.FK_Donacion_especies_dona">
+            <End Role="Donante" EntitySet="Donante" />
+            <End Role="DonacionEspecies" EntitySet="DonacionEspecies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Donacion_monetaria_dona" Association="Self.FK_Donacion_monetaria_dona">
+            <End Role="Donante" EntitySet="Donante" />
+            <End Role="DonacionMonetaria" EntitySet="DonacionMonetaria" />
+          </AssociationSet>
+          <AssociationSet Name="FK_apadrinado_Donante" Association="Self.FK_apadrinado_Donante">
+            <End Role="Donante" EntitySet="Donante" />
+            <End Role="ResidenteDonante" EntitySet="ResidenteDonante" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Incidente_implica" Association="Self.FK_Incidente_implica">
+            <End Role="NivelDeRiesgo" EntitySet="NivelDeRiesgo" />
+            <End Role="Incidente" EntitySet="Incidente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Incidente_ocurren" Association="Self.FK_Incidente_ocurren">
+            <End Role="Residente" EntitySet="Residente" />
+            <End Role="Incidente" EntitySet="Incidente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_reporta" Association="Self.FK_Usuario_reporta">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Incidente" EntitySet="Incidente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tiene_Opcion" Association="Self.FK_tiene_Opcion">
+            <End Role="Opcion" EntitySet="Opcion" />
+            <End Role="RolOpcion" EntitySet="RolOpcion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_padece_Patologia" Association="Self.FK_padece_Patologia">
+            <End Role="Patologia" EntitySet="Patologia" />
+            <End Role="ResidentePatologia" EntitySet="ResidentePatologia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_apadrinado_Residente" Association="Self.FK_apadrinado_Residente">
+            <End Role="Residente" EntitySet="Residente" />
+            <End Role="ResidenteDonante" EntitySet="ResidenteDonante" />
+          </AssociationSet>
+          <AssociationSet Name="FK_padece_Residente" Association="Self.FK_padece_Residente">
+            <End Role="Residente" EntitySet="Residente" />
+            <End Role="ResidentePatologia" EntitySet="ResidentePatologia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Residente_se_ubica" Association="Self.FK_Residente_se_ubica">
+            <End Role="Zona" EntitySet="Zona" />
+            <End Role="Residente" EntitySet="Residente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tiene_Rol" Association="Self.FK_tiene_Rol">
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="RolOpcion" EntitySet="RolOpcion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_tiene" Association="Self.FK_Usuario_tiene">
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <EntitySet Name="Contacto" EntityType="mininosUCAModel.Contacto" />
+        </EntityContainer>
+        <EntityType Name="Contacto">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="telefono" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="correo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="correo2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="twitter" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="insta" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="facebook" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="mininosUCAModelStoreContainer" CdmEntityContainer="mininosDatabaseEntities">
+          <EntitySetMapping Name="AES">
+            <EntityTypeMapping TypeName="mininosUCAModel.AES">
+              <MappingFragment StoreEntitySet="AES">
+                <ScalarProperty Name="idAes" ColumnName="idAes" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="token" ColumnName="token" />
+                <ScalarProperty Name="iv" ColumnName="iv" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Album">
+            <EntityTypeMapping TypeName="mininosUCAModel.Album">
+              <MappingFragment StoreEntitySet="Album">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="foto" ColumnName="foto" />
+                <ScalarProperty Name="residenteId" ColumnName="residenteId" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DonacionEspecies">
+            <EntityTypeMapping TypeName="mininosUCAModel.DonacionEspecies">
+              <MappingFragment StoreEntitySet="DonacionEspecies">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="tipoEspecie" ColumnName="tipoEspecie" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="unidadMedida" ColumnName="unidadMedida" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="donanteId" ColumnName="donanteId" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DonacionMonetaria">
+            <EntityTypeMapping TypeName="mininosUCAModel.DonacionMonetaria">
+              <MappingFragment StoreEntitySet="DonacionMonetaria">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="montoNi" ColumnName="montoNi" />
+                <ScalarProperty Name="voucher" ColumnName="voucher" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="donanteId" ColumnName="donanteId" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Donante">
+            <EntityTypeMapping TypeName="mininosUCAModel.Donante">
+              <MappingFragment StoreEntitySet="Donante">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="fechaIngreso" ColumnName="fechaIngreso" />
+                <ScalarProperty Name="alias" ColumnName="alias" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="numTelefono" ColumnName="numTelefono" />
+                <ScalarProperty Name="pais" ColumnName="pais" />
+                <ScalarProperty Name="ciudad" ColumnName="ciudad" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Incidente">
+            <EntityTypeMapping TypeName="mininosUCAModel.Incidente">
+              <MappingFragment StoreEntitySet="Incidente">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nivelRiesgoId" ColumnName="nivelRiesgoId" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="foto" ColumnName="foto" />
+                <ScalarProperty Name="residenteId" ColumnName="residenteId" />
+                <ScalarProperty Name="usuarioId" ColumnName="usuarioId" />
+                <ScalarProperty Name="fechaHora" ColumnName="fechaHora" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InfoBancaria">
+            <EntityTypeMapping TypeName="mininosUCAModel.InfoBancaria">
+              <MappingFragment StoreEntitySet="InfoBancaria">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="banco" ColumnName="banco" />
+                <ScalarProperty Name="numeroCuenta" ColumnName="numeroCuenta" />
+                <ScalarProperty Name="moneda" ColumnName="moneda" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NivelDeRiesgo">
+            <EntityTypeMapping TypeName="mininosUCAModel.NivelDeRiesgo">
+              <MappingFragment StoreEntitySet="NivelDeRiesgo">
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Opcion">
+            <EntityTypeMapping TypeName="mininosUCAModel.Opcion">
+              <MappingFragment StoreEntitySet="Opcion">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="accion" ColumnName="accion" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patologia">
+            <EntityTypeMapping TypeName="mininosUCAModel.Patologia">
+              <MappingFragment StoreEntitySet="Patologia">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Publicacion">
+            <EntityTypeMapping TypeName="mininosUCAModel.Publicacion">
+              <MappingFragment StoreEntitySet="Publicacion">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="fotoPublicacion" ColumnName="fotoPublicacion" />
+                <ScalarProperty Name="titulo" ColumnName="titulo" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="contenido" ColumnName="contenido" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Residente">
+            <EntityTypeMapping TypeName="mininosUCAModel.Residente">
+              <MappingFragment StoreEntitySet="Residente">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="fotoId" ColumnName="fotoId" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="sexo" ColumnName="sexo" />
+                <ScalarProperty Name="esterilizado" ColumnName="esterilizado" />
+                <ScalarProperty Name="fechaIngreso" ColumnName="fechaIngreso" />
+                <ScalarProperty Name="fechaNacimiento" ColumnName="fechaNacimiento" />
+                <ScalarProperty Name="fechaDesaparicion" ColumnName="fechaDesaparicion" />
+                <ScalarProperty Name="fechaDefuncion" ColumnName="fechaDefuncion" />
+                <ScalarProperty Name="zonaId" ColumnName="zonaId" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ResidenteDonante">
+            <EntityTypeMapping TypeName="mininosUCAModel.ResidenteDonante">
+              <MappingFragment StoreEntitySet="ResidenteDonante">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="donanteId" ColumnName="donanteId" />
+                <ScalarProperty Name="residenteId" ColumnName="residenteId" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ResidentePatologia">
+            <EntityTypeMapping TypeName="mininosUCAModel.ResidentePatologia">
+              <MappingFragment StoreEntitySet="ResidentePatologia">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="patologiaId" ColumnName="patologiaId" />
+                <ScalarProperty Name="residenteId" ColumnName="residenteId" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rol">
+            <EntityTypeMapping TypeName="mininosUCAModel.Rol">
+              <MappingFragment StoreEntitySet="Rol">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RolOpcion">
+            <EntityTypeMapping TypeName="mininosUCAModel.RolOpcion">
+              <MappingFragment StoreEntitySet="RolOpcion">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="opcionId" ColumnName="opcionId" />
+                <ScalarProperty Name="rolId" ColumnName="rolId" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="mininosUCAModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="mininosUCAModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="fotoId" ColumnName="fotoId" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="pw" ColumnName="pw" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="telefonoCel" ColumnName="telefonoCel" />
+                <ScalarProperty Name="fechaCreacion" ColumnName="fechaCreacion" />
+                <ScalarProperty Name="rolId" ColumnName="rolId" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="TokenRestablecimiento" ColumnName="TokenRestablecimiento" />
+                <ScalarProperty Name="FechaCreacionToken" ColumnName="FechaCreacionToken" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Zona">
+            <EntityTypeMapping TypeName="mininosUCAModel.Zona">
+              <MappingFragment StoreEntitySet="Zona">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contacto">
+            <EntityTypeMapping TypeName="mininosUCAModel.Contacto">
+              <MappingFragment StoreEntitySet="Contacto">
+                <ScalarProperty Name="facebook" ColumnName="facebook" />
+                <ScalarProperty Name="insta" ColumnName="insta" />
+                <ScalarProperty Name="twitter" ColumnName="twitter" />
+                <ScalarProperty Name="correo2" ColumnName="correo2" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
